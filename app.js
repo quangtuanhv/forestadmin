@@ -10,6 +10,7 @@ const {
   ensureAuthenticated,
   PUBLIC_ROUTES,
 } = require('forest-express-sequelize');
+require('dotenv').config()
 
 const app = express();
 

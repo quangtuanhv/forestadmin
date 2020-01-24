@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "book-village-admin",
+      "script": "./bin/www",
+      "error_file"  : "/dev/null",
+      "out_file"    : "/dev/null"
+    }
+  ]
+}
