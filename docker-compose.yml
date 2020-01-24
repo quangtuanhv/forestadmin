@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: admin_bookvillage
+    environment:
+      - APPLICATION_PORT=3310
+      - DATABASE_URL=mysql://root@127.0.0.1:3306/bookvillage
+      - DATABASE_SSL=false
+      - FOREST_AUTH_SECRET=8f23951d71d53f3523c4a704957c04adb5fce303c095181ebf3537d7e62013d3c4ef5dacd287cd4baecf102305aa1abb
+      - FOREST_ENV_SECRET=e5b9abdd91a08dfecc1ef468aeb88cf99769c8c4416137a5063e7eaf003a99b8
+    ports:
+      - "3310:3310"
+    volumes:
+      - ./:/usr/src/app
