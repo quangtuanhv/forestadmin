@@ -44,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
 
   // This section contains the relationships for this model. See: https://docs.forestadmin.com/documentation/v/v5/reference-guide/relationships#adding-relationships.
   Book.associate = (models) => {
+    Book.belongsToMany(models.user, {
+      through: models.userbook,
+      otherKey: 'user',
+      foreignKey: 'book'
+    })
   };
 
   return Book;

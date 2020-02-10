@@ -29,18 +29,26 @@ module.exports = (sequelize, DataTypes) => {
     status: {
       type: DataTypes.STRING,
     },
-    user: {
-      type: DataTypes.INTEGER,
-    },
-    book: {
-      type: DataTypes.INTEGER,
-    },
+    // user: {
+    //   type: DataTypes.INTEGER,
+    // },
+    // book: {
+    //   type: DataTypes.INTEGER,
+    // },
   }, {
     tableName: 'userbook',
   });
 
   // This section contains the relationships for this model. See: https://docs.forestadmin.com/documentation/v/v5/reference-guide/relationships#adding-relationships.
   Userbook.associate = (models) => {
+    Userbook.belongsTo(models.book, {
+      as: 'bookId',
+      foreignKey: 'book',
+    });
+    Userbook.belongsTo(models.user, {
+      as: 'userId',
+      foreignKey: 'user',
+    });
   };
 
   return Userbook;
